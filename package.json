@@ -1,0 +1,45 @@
+{
+  "name": "vue-base",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --port 3300",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "preview-https": "serve dist",
+    "test": "vitest",
+    "test:e2e": "cypress open",
+    "test:unit": "vitest",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@vueuse/core": "^8.1.1",
+    "@vueuse/head": "^0.7.5",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.12",
+    "vue": "^3.2.31",
+    "vue-i18n": "^9.1.9",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "@antfu/eslint-config": "^0.18.8",
+    "@iconify/json": "^2.1.73",
+    "@intlify/vite-plugin-vue-i18n": "^3.3.1",
+    "@types/nprogress": "^0.2.0",
+    "@vitejs/plugin-vue": "^2.2.4",
+    "@vue/test-utils": "^2.0.0-rc.18",
+    "cross-env": "^7.0.3",
+    "cypress": "^9.5.2",
+    "eslint": "^8.11.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "https-localhost": "^4.7.1",
+    "typescript": "^4.6.2",
+    "unocss": "^0.43.2",
+    "vite": "^2.9.13",
+    "vite-plugin-inspect": "^0.4.3",
+    "vitest": "^0.7.0",
+    "vue-tsc": "^0.33.2"
+  }
+}
