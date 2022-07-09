@@ -8,6 +8,8 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
+import { presetChroma } from 'unocss-preset-chroma'
 
 export default defineConfig({
   shortcuts: [
@@ -22,12 +24,17 @@ export default defineConfig({
       warn: true,
     }),
     presetTypography(),
+    presetChroma(),
     presetWebFonts({
+      provider: 'google',
       fonts: {
         sans: 'DM Sans',
         serif: 'DM Serif Display',
         mono: 'DM Mono',
       },
+    }),
+    presetScrollbar({
+      // config
     }),
   ],
   transformers: [

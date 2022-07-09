@@ -1,4 +1,4 @@
 {
-  "extends": "@antfu",
+  "extends": ["@antfu/eslint-config", "@antfu/eslint-config-basic", "@antfu/eslint-config-vue", "eslint-config-ts", "eslint-config-airbnb-typescript"],
   "trailingComma": false
 }

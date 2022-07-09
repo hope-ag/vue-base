@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { toggleDark, isDark } from '~/composables';
 
 defineProps<{ msg: string }>()
-
 const count = ref(0)
 </script>
 
 <template>
+<router-link to="/"><i i-mdi-home />Home</router-link>
+  <span>|</span>
+  <router-link to="/about"><i i-fa-info-circle />About</router-link>
+<div @click="toggleDark()"  p4  class="bg-gray-400/20" >
   <h1>{{ msg }}</h1>
-
+  <i v-if="isDark" i-carbon-sun />
+  <i v-else i-carbon-moon />
   <p>
     Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
+    <a dark:text-green-400 href="https://code.visualstudio.com/" target="_blank">VSCode</a>
     +
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
   </p>
@@ -26,27 +31,10 @@ const count = ref(0)
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
   </p>
 
-  <button type="button" @click="count++">count is: {{ count }}</button>
+  <button type="button" @click.prevent="count++">count is: {{ count }}</button>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+</div>
 </template>
-
-<style scoped>
-a {
-  color: #42b983;
-}
-
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
-}
-</style>
