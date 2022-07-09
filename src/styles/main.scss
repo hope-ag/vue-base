@@ -1,3 +1,4 @@
+@use "./ionic-theme.scss" as *;
 html,
 body,
 #app {
@@ -6,9 +7,11 @@ body,
   padding: 0;
 }
 
-html.dark {
-  background: #121212;
-  color: #fff;
+html {
+  @apply bg-gray-100 text-slate-800;
+  &.dark {
+    @apply bg-slate-800 text-gray-100;
+}
 }
 i {
   display: inline-block
@@ -19,8 +22,7 @@ i {
 }
 
 #nprogress .bar {
-  background: rgb(13,148,136);
-  opacity: 0.75;
+  background: theme('colors.indigo.700');
   position: fixed;
   z-index: 1031;
   top: 0;
