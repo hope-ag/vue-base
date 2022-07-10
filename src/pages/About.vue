@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { IonCheckbox, IonItem, IonLabel, IonList } from '@ionic/vue';
-const form = [
-      { val: 'Pepperoni', isChecked: true },
-      { val: 'Sausage', isChecked: false },
-      { val: 'Mushroom', isChecked: false }
-    ];
+// import { ElDatePicker } from 'element-plus/es';
+import { ref } from 'vue';
+// let count = $ref(0);
+//   function increment() {
+//     count++;
+//   }
+  let value1 = ref('');
 </script>
 
 <template>
@@ -14,19 +15,19 @@ const form = [
   <h1 class="text-pink-500 text-lg">About</h1>
   <span class="bg-indigo-400 h-1 w-8 inline-block rounded"></span>
   <span class="bg-indigo-400 h-1 w-2 inline-block ml-2 rounded"></span>
+   <div class="block">
+      <span class="demonstration">Emits Date object</span>
+      <div class="demonstration">Value: {{ value1 }}</div>
+    </div>
+  <el-date-picker
+    v-model="value1"
+    type="datetime"
+    placeholder="Pick a Date"
+    format="YYYY/MM/DD hh:mm:ss"
+  />
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptates ex suscipit optio aliquam quo distinctio tenetur, cumque dolorum perferendis aut repellendus totam quidem dicta! Nulla quae dolores, excepturi animi quis debitis possimus veritatis officia, adipisci non similique laudantium vel.
   </p>
 </div>
-<ion-list>
-    <ion-item v-for="entry in form">
-      <ion-label>{{entry.val}}</ion-label>
-      <ion-checkbox
-        slot="end"
-        @update:modelValue="entry.isChecked = $event"
-        :modelValue="entry.isChecked">
-      </ion-checkbox>
-    </ion-item>
-  </ion-list>
 
 </template>

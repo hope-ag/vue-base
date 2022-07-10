@@ -6,7 +6,7 @@ const breakpoints = useBreakpoints();
 </script>
 
 <template>
-<div  p4  class="bg-slate-900/3 dark:bg-slate-900/15 container mx-auto space-y-2 p-4 my-8 rounded" >
+<div  p4  class="bg-slate-900/3 dark:bg-slate-900/20 container mx-auto space-y-2 p-4 my-8 rounded" >
   <h1 class="text-pink-500 text-lg">Home</h1>
   <span class="bg-indigo-400 h-1 w-8 inline-block rounded"></span>
   <span class="bg-indigo-400 h-1 w-2 inline-block ml-2 rounded"></span>
