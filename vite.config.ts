@@ -4,6 +4,9 @@ import Vue from '@vitejs/plugin-vue'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import Unocss from 'unocss/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 
 export default defineConfig({
   resolve: {
@@ -11,16 +14,33 @@ export default defineConfig({
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "~/styles/element/index.scss" as *;`,
+      },
+    },
+  },
   plugins: [
     Vue({
-      include: [/\.vue$/, /\.md$/],
-      reactivityTransform: true,
+      // include: [/\.vue$/, /\.md$/],
+      // reactivityTransform: true,
+    }),
+    Components({
+      // allow auto load markdown components under `./src/components/`
+      extensions: ['vue', 'md'],
+      // allow auto import and register components used in markdown
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: 'sass',
+        }),
+      ],
+      dts: 'src/components.d.ts',
     }),
 
-    // https://github.com/antfu/unocss
-    // see unocss.config.ts for config
     Unocss(),
-    // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
+
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
@@ -33,17 +53,17 @@ export default defineConfig({
   ],
 
 
-  optimizeDeps: {
-    include: [
-      'vue',
-      'vue-router',
-      '@vueuse/core',
-      '@vueuse/head',
-    ],
-    exclude: [
-      'vue-demi',
-    ],
-  },
+  // optimizeDeps: {
+  //   include: [
+  //     'vue',
+  //     'vue-router',
+  //     '@vueuse/core',
+  //     '@vueuse/head',
+  //   ],
+  //   exclude: [
+  //     'vue-demi',
+  //   ],
+  // },
 
   // https://github.com/vitest-dev/vitest
   test: {
