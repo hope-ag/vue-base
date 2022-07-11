@@ -13,16 +13,17 @@ html {
   @apply bg-gray-100 text-slate-800;
   &.dark {
     @apply bg-slate-800 text-gray-100;
-    & body{
+    & body {
+      // Override any element UI css variables for dark mode here
       --el-bg-color-overlay: theme('colors.slate.800');
       --el-bg-color: theme('colors.slate.900');
       --el-bg-color-page: theme('colors.slate.800');
     }
-}
+  }
 }
 
 i {
-  display: inline-block
+  display: inline-block;
 }
 
 a {

@@ -6,7 +6,7 @@ import { toggleDark, isDark } from '~/composables';
 </script>
 
 <template>
-<nav class="bg-white dark:bg-gray-600/50 py-2">
+<nav class="bg-white dark:bg-slate-600/60 py-2">
   <div class="container flex justify-between mx-auto">
     <h5
       class="text-indigo-600 dark:text-indigo-400 fw-bold flex items-center gap-1 select-none cursor-pointer text-lg"
